@@ -73,8 +73,9 @@ function App() {
             </div>
           ))}
         </div>:
-        <div className="flex justify-center w-screen mt-10 ">
+        <div className="flex flex-col items-center gap-y-4 w-screen mt-10 ">
           <img src={EmptyTodo} alt="" className="shadow-2xl rounded-md w-56"  />
+          <p className="text-xl text-white font-bold">No Todo Found</p>
         </div>
         }
       </div>
