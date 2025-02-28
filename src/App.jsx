@@ -4,6 +4,8 @@ import { TodoProvider } from "./Contexts/Index";
 import TodoForm from "./Components/TodoForm";
 import TodoItem from "./Components/TodoItem";
 
+import EmptyTodo from "../public/EmptyTodo.avif"
+
 function App() {
   const [todos, setTodos] = useState([]);
 
@@ -62,7 +64,7 @@ function App() {
             <TodoForm />
           </div>
         </div>
-        <div className="flex flex-wrap gap-y-3 max-w-[75%] mx-auto mt-10">
+        {todos.length ? <div className="flex flex-wrap gap-y-3 max-w-[75%] mx-auto mt-10">
           {/*Loop and Add TodoItem here */}
           {console.log(todos)}
           {todos.map((todo) => (
@@ -70,7 +72,11 @@ function App() {
               <TodoItem todoitems={todo} />
             </div>
           ))}
+        </div>:
+        <div className="flex justify-center w-screen mt-10 ">
+          <img src={EmptyTodo} alt="" className="shadow-2xl rounded-md w-56"  />
         </div>
+        }
       </div>
     </TodoProvider>
   );
